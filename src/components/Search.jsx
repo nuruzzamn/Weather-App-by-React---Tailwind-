@@ -4,14 +4,14 @@ import Button from "./Button";
 const Search = () => {
   return (
     <div>
-      <section className="max-w-xs flex justify-start items-center gap-5 p-2 border border-slate-gray rounded-full">
+      <section className="max-w-xs flex flex-row justify-between border border-slate-gray rounded-full p-1">
         <input
           type="text"
           placeholder="Enter a location"
-          className="text-center relative px-6 bg-white outline-none"
+          className="text-center outline-none p-1 flex-1 rounded-full text-slate-gray px-5"
         />
-        <section className=" items-center flex absolute ml-[215px]">
-          <Button label={"Sign up"} hover={`hover:bg-black`} />
+        <section className="">
+          <Button label={"Search"} hover={`hover:bg-black`} />
         </section>
       </section>
     </div>
