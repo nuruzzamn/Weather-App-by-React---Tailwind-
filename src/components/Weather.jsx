@@ -1,15 +1,23 @@
-import Search from './Search'
-import MiddleSection from './MiddleSection'
-import DownSection from './DownSection'
+import Search from "./Search";
+import MiddleSection from "./MiddleSection";
+import DownSection from "./DownSection";
 
 const Weather = () => {
   return (
-    <div>
+    <div className="max-container relative">
+      <section className="padding">
         <Search />
-        <MiddleSection />
-        <DownSection />
-    </div>
-  )
-}
+      </section>
 
-export default Weather
+      <section className="padding">
+        <MiddleSection />
+      </section>
+ 
+      <section className="padding">
+        <DownSection />
+      </section>
+    </div>
+  );
+};
+
+export default Weather;
