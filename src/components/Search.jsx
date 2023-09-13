@@ -1,25 +1,20 @@
-import React from "react";
-import Button from "./Button";
-import locationIcon from "../assets/icons/location.svg"
+import SearchCard from "./SearchCard";
+import { useState } from "react";
 
 const Search = () => {
-  return (
-    <div className="flex flex-col gap-3">
-      <section className="max-w-xs flex flex-row justify-between bg-none border border-slate-gray rounded-full p-1">
-        <input
-          type="text"
-          placeholder="Enter a location"
-          className="text-center outline-none p-1 flex-1 rounded-full text-slate-gray px-5"
-        />
-        <section className="rounded-full">
-          <Button label={"Search"} hover={`hover:bg-black`} />
-        </section>
-      </section>
+  const [searchData, setSearchData] = useState("");
 
-      <section className="flex justify-start items-center px-4 gap-3">
-        <img src={locationIcon} alt="" className="small-icon-size mt-1"/>
-        <p>location</p>
-      </section>
+  const onChangeHandle = (e) => {
+    setSearchData(e.target.value);
+  };
+
+  const searchHandle = () => {
+    alert(searchData);
+  };
+
+  return (
+    <div>
+      <SearchCard onclick={searchHandle} onChangeHandle={onChangeHandle} />
     </div>
   );
 };
