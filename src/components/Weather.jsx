@@ -6,7 +6,7 @@ import DataRow from "./DataRow";
 const Weather = () => {
   return (
     <div className="max-w-3xl relative m-auto flex flex-1 justify-center flex-col">
-      <section className="padding-x padding-b pt-10 bg-red-100 flex flex-1 justify-center">
+      <section className="padding-x padding-b pt-10 flex flex-1 justify-center">
         <Search />
       </section>
 
@@ -18,7 +18,7 @@ const Weather = () => {
         <DataRow />
       </section>
  
-      <section className="padding bg-cyan-100 flex flex-1 justify-center">
+      <section className="sm:padding padding-y bg-cyan-100 flex flex-1 justify-center">
         <DownSection />
       </section>
     </div>
