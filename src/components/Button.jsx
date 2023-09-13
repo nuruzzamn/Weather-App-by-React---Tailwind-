@@ -1,6 +1,6 @@
 const Button = ({ label, hover}) => {
     return (
-      <div>
+      <div className="rounded-full">
         <button
           className={` ${hover} 
         bg-coral-red text-white font-semibold border-coral-red

@@ -10,7 +10,7 @@ const Weather = () => {
         <Search />
       </section>
 
-      <section className="padding bg-green-100 flex flex-1 justify-center">
+      <section className="padding-b flex flex-1 justify-center">
         <MiddleSection />
       </section>
 
@@ -18,7 +18,7 @@ const Weather = () => {
         <DataRow />
       </section>
  
-      <section className="sm:padding padding-y bg-cyan-100 flex flex-1 justify-center">
+      <section className="sm:padding padding-y flex flex-1 justify-center">
         <DownSection />
       </section>
     </div>

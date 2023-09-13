@@ -10,6 +10,7 @@
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  background-color:#efefef
 }
 
 @layer components {
@@ -25,7 +26,7 @@
 
 @layer utilities {
   .padding {
-    @apply sm:px-16 px-8 sm:py-24 py-10 ;
+    @apply sm:px-16 px-8 sm:py-12 py-10 ;
   }
 
   .padding-x {
@@ -33,7 +34,7 @@
   }
 
   .padding-y {
-    @apply sm:py-24 py-12;
+    @apply sm:py-20 py-12;
   }
 
   .padding-l {
@@ -49,10 +50,14 @@
   }
 
   .padding-b {
-    @apply sm:pb-24 pb-12;
+    @apply sm:pb-10 pb-10;
   }
 
   .info-text {
     @apply font-montserrat text-slate-gray text-lg leading-7;
+  }
+
+  .small-icon-size{
+    @apply sm:w-6 sm:h-6 w-4 h-4
   }
 }
