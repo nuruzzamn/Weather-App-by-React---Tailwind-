@@ -1,7 +1,7 @@
 import Button from "./Button";
 import locationIcon from "../assets/icons/location.svg"
 
-const SearchCard = ({onclick, onChangeHandle}) => {
+const SearchCard = ({onclick, onChangeHandle, searchData}) => {
 
 
   return (
@@ -11,6 +11,7 @@ const SearchCard = ({onclick, onChangeHandle}) => {
           type="text"
           placeholder="Enter a location"
           onChange={onChangeHandle}
+          value={searchData}
           className="text-center outline-none p-1 flex-1 rounded-full text-slate-gray px-5"
         />
         <section className="rounded-full">
