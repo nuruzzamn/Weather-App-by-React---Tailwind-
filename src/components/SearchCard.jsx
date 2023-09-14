@@ -1,8 +1,25 @@
 import Button from "./Button";
 import locationIcon from "../assets/icons/location.svg";
+import { useState } from "react";
 
 const SearchCard = ({ onclick, onChangeHandle, searchData, location }) => {
-  location && console.log("search card", location);
+  const {name, country}=location
+
+  // const [newName, setNewName]=useState("")
+  // const [newCountry, setNewCountry]=useState("")
+
+
+  // if (name && country !== undefined){
+  //   setNewName(name)
+  //   setNewCountry(country)
+  //   console.log("search card name", name);
+  // } else {
+  //   console.log("value undefined");
+  //   setNewName("")
+  //   setNewCountry("")
+  // }
+
+  // console.log("not undefined",newName);
 
   return (
     <div className="flex flex-col gap-3">
@@ -22,7 +39,8 @@ const SearchCard = ({ onclick, onChangeHandle, searchData, location }) => {
       <section className="flex justify-start items-center px-4 gap-3">
         <img src={locationIcon} alt="" className="small-icon-size mt-1" />
 
-         {location && <p>{location.name +" "+","+" "+ location.country}</p>}
+        {/* <p>{data}</p> */}
+       {(name && country)!== undefined? <p>{name +" "+","+" "+ country}</p>:<p>{""}</p>}
       </section>
     </div>
   );
