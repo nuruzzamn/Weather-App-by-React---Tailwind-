@@ -1,5 +1,6 @@
 import skySun from "../assets/icons/sky-sun.png"
 const MiddleSection = ({middleData}) => {
+  const {des, temp, name}=middleData
 
   return (
     <div className="">
@@ -9,9 +10,9 @@ const MiddleSection = ({middleData}) => {
         </section>
 
         <section className="basis-2/6 font-montserrat text-slate-700 pl-3 mt-4 ">
-            <h1 className="text-lg">{middleData.des}</h1>
-            <p className="text-4xl sm:text-8xl mt-2">{middleData.temp}</p>
-            <h2 className="text-xs sm:text-lg font-bold">{middleData.name}</h2>
+            <h1 className="text-lg">{des}</h1>
+            {temp && <p className="text-4xl sm:text-8xl mt-2">{Math.round(temp)}</p>}
+            <h2 className="text-xs sm:text-lg font-bold">{name}</h2>
         </section>
 
       </section>

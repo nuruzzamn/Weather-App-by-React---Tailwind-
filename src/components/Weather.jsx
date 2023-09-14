@@ -18,7 +18,7 @@ const Weather = () => {
     setError(error);
   };
 
-  console.log("weather", data, data.name);
+  (data !==undefined)? console.log("weather  bbgb", data):console.log("undefined data");
 
   
   const name = data.name;
@@ -26,12 +26,15 @@ const Weather = () => {
   const sunrise = data.sys?.sunrise;
   const sunset = data.sys?.sunset;
   const wind = data.wind?.speed;
-  // const des = data.weather[0].description
+  let des = "";
   // const des=""
   const temp = data.main?.temp;
   const tempMax = data.main?.temp_max;
   const tempMin = data.main?.temp_min;
 
+  console.log("data check",data);
+
+  (data === null)? des="" : des=data?.weather?.[0]?.description
 
   // console.log("des", des);
 
@@ -47,10 +50,8 @@ const Weather = () => {
       </section>
 
       <section className="padding-b flex flex-1 justify-center">
-        <MiddleSection middleData={{ temp, name}}/>
-        {/* {des !== undefined ? (<MiddleSection middleData={{temp, name}}/>):(
-          <MiddleSection middleData={{temp, name}}/>
-        )} */}
+        
+      {(data !==undefined)?<MiddleSection middleData={{ temp, name, des}}/>:<MiddleSection middleData={""}/>}
 
       </section>
 
