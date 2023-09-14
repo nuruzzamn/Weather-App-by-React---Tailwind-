@@ -1,5 +1,6 @@
 import skySun from "../assets/icons/sky-sun.png"
-const MiddleSection = () => {
+const MiddleSection = ({middleData}) => {
+
   return (
     <div className="">
       <section className="max-w-xs flex flex-row flex-1 justify-between">
@@ -8,9 +9,9 @@ const MiddleSection = () => {
         </section>
 
         <section className="basis-2/6 font-montserrat text-slate-700 pl-3 mt-4 ">
-            <h1 className="text-lg">text</h1>
-            <p className="text-4xl sm:text-8xl mt-2">30</p>
-            <h2 className="text-xs sm:text-lg font-bold">tungi</h2>
+            <h1 className="text-lg">{middleData.des}</h1>
+            <p className="text-4xl sm:text-8xl mt-2">{middleData.temp}</p>
+            <h2 className="text-xs sm:text-lg font-bold">{middleData.name}</h2>
         </section>
 
       </section>

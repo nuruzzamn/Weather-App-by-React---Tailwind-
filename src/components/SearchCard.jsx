@@ -1,14 +1,8 @@
 import Button from "./Button";
 import locationIcon from "../assets/icons/location.svg";
 
-const SearchCard = ({ onclick, onChangeHandle, searchData, data }) => {
-  // const {name, sys}=data.data;
-
-  // data && console.log("serach card",name)
-
-  // location.country.map((country)=>{
-  //   console.log(country.country)
-  // })
+const SearchCard = ({ onclick, onChangeHandle, searchData, location }) => {
+  location && console.log("search card", location);
 
   return (
     <div className="flex flex-col gap-3">
@@ -28,8 +22,7 @@ const SearchCard = ({ onclick, onChangeHandle, searchData, data }) => {
       <section className="flex justify-start items-center px-4 gap-3">
         <img src={locationIcon} alt="" className="small-icon-size mt-1" />
 
-        <p>{data}</p>
-        {/* {location && <p>{location.location +" "+ location.country}</p>} */}
+        {location && <p>{location.name +" "+","+" "+ location.country}</p>}
       </section>
     </div>
   );
