@@ -1,23 +1,35 @@
 import SearchCard from "./SearchCard";
+import Weather from "./Weather";
 import { useState, useEffect } from "react";
 
-const Search = () => {
+const Search = ({ onFetchDataChanged, onErrorMessageChanged, data }) => {
   const [searchData, setSearchData] = useState("");
 
-  const [fetchData, setFetchData] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [inputData, setInputData] = useState(null);
+
+  // const [fetchData, setFetchData] = useState("");
+  // const [errorMessage, setErrorMessage] = useState("");
 
   const api =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
-    searchData +
+    inputData +
     "&appid=3265874a2c77ae4a04bb96236a642d2f&units=metric";
+
+  useEffect(() => {
+    setInputData(searchData);
+  }, [searchData]);
+
+  inputData && console.log("search", inputData);
+
+  // (fetchData && onFetchDataChanged(fetchData));
+  // (errorMessage && onErrorMessageChanged(errorMessage));
 
   const onChangeHandle = (e) => {
     setSearchData(e.target.value);
   };
 
   const apiDataHandle = () => {
-    if (searchData) {
+    if (inputData) {
       fetch(api)
         .then((res) => {
           if (!res.ok) {
@@ -27,10 +39,12 @@ const Search = () => {
           }
         })
         .then((data) => {
-          setFetchData(data);
+          // setFetchData(data);
+          onFetchDataChanged(data);
         })
         .catch((error) => {
-          setErrorMessage(error);
+          // setErrorMessage(error);
+          onErrorMessageChanged(error);
         });
     } else {
       console.log("enter a location name");
@@ -43,8 +57,8 @@ const Search = () => {
     apiDataHandle();
   };
 
-  fetchData && console.log("fetch data", fetchData);
-  errorMessage && console.log(errorMessage);
+  // fetchData && console.log("fetch data", fetchData);
+  // errorMessage && console.log(errorMessage);
 
   return (
     <div>
@@ -52,6 +66,9 @@ const Search = () => {
         onclick={searchClickHandle}
         onChangeHandle={onChangeHandle}
         searchData={searchData}
+        // fetchDataProps={()=>{}}
+        // errorMessage={errorMessage}
+        data={data}
       />
     </div>
   );
