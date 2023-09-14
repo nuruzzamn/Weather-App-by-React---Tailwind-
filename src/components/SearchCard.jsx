@@ -22,7 +22,7 @@ const SearchCard = ({ onclick, onChangeHandle, searchData, location }) => {
       <section className="flex justify-start items-center px-4 gap-3">
         <img src={locationIcon} alt="" className="small-icon-size mt-1" />
 
-        {location && <p>{location.name +" "+","+" "+ location.country}</p>}
+         {location && <p>{location.name +" "+","+" "+ location.country}</p>}
       </section>
     </div>
   );

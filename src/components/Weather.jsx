@@ -5,7 +5,7 @@ import DownSection from "./DownSection";
 import DataRow from "./DataRow";
 
 const Weather = () => {
-  const [data, setData] = useState(" ");
+  const [data, setData] = useState("");
   const [error, setError] = useState(null);
 
   const onFetchDataChanged = (data) => {
@@ -26,7 +26,7 @@ const Weather = () => {
   const sunrise = data.sys?.sunrise;
   const sunset = data.sys?.sunset;
   const wind = data.wind?.speed;
-  // const des = data?.weather[0]?.description
+  // const des = data.weather[0].description
   // const des=""
   const temp = data.main?.temp;
   const tempMax = data.main?.temp_max;
