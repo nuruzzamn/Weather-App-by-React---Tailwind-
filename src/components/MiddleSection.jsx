@@ -1,6 +1,6 @@
 import skySun from "../assets/icons/sky-sun.png";
 const MiddleSection = ({ middleData }) => {
-  const { des, temp, name } = middleData;
+  const { des, dataTemp, name } = middleData;
 
   return (
     <div className="">
@@ -14,14 +14,21 @@ const MiddleSection = ({ middleData }) => {
         </section>
 
         <section className="basis-2/6 font-montserrat text-slate-700 pl-3 mt-4 ">
-          <h1 className="text-lg">{des}</h1>
-          {temp && (
-            <section className="flex ">
-              <p className="text-4xl sm:text-8xl mt-2">{Math.round(temp)}</p>
+          {dataTemp && (
+            <section className="flex justify-start">
+              <p className="z-10 bg-transparent">{des}</p>
+              <section className="flex flex-row ml-[-40px] mt-4 bg-transparent">
+                <p className="text-4xl sm:text-8xl mt-2">
+                  {Math.round(dataTemp)}
+                </p>
 
-              <p className="lg:font-bold lg:text-3xl font-semibold text-xl mt-2 ml-1">0</p>
+                <p className="lg:font-bold lg:text-3xl font-semibold text-xl mt-2 ml-1">
+                  0
+                </p>
+              </section>
             </section>
           )}
+
           <h2 className="text-xs sm:text-lg font-bold">{name}</h2>
         </section>
       </section>

@@ -25,19 +25,17 @@ const Weather = () => {
   const country = data.sys?.country;
   const sunrise = data.sys?.sunrise;
   const sunset = data.sys?.sunset;
-  const wind = data.wind?.speed;
+  const dataWind = data.wind?.speed;
   let des = "";
-  // const des=""
-  const temp = data.main?.temp;
+  const dataClouds = data.clouds?.all;
+  const dataHumidity = data.main?.humidity;
+  const dataTemp = data.main?.temp;
   const tempMax = data.main?.temp_max;
   const tempMin = data.main?.temp_min;
 
   console.log("data check",data);
 
   (data === null)? des="" : des=data?.weather?.[0]?.description
-
-  // console.log("des", des);
-
 
   return (
     <div className="max-w-3xl relative m-auto flex flex-1 justify-center flex-col">
@@ -51,12 +49,12 @@ const Weather = () => {
 
       <section className="padding-b flex flex-1 justify-center">
         
-      {(data !==undefined)?<MiddleSection middleData={{ temp, name, des}}/>:<MiddleSection middleData={""}/>}
+      {(data !==undefined)?<MiddleSection middleData={{ dataTemp, name, des}}/>:<MiddleSection middleData={""}/>}
 
       </section>
 
       <section className="flex flex-1 justify-center">
-        <DataRow />
+        <DataRow dataRow={{dataHumidity, dataClouds, dataWind, dataTemp}}/>
       </section>
 
       <section className="sm:padding padding-y flex flex-1 justify-center">
