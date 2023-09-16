@@ -50,6 +50,7 @@ const Weather = () => {
   let des = "";
   const dataClouds = data.clouds?.all;
   const dataHumidity = data.main?.humidity;
+  const dataTempFeeelsLike = data.main?.feels_like;
   const dataTemp = data.main?.temp;
   const dataTempMax = data.main?.temp_max;
   const dataTempMin = data.main?.temp_min;
@@ -153,7 +154,7 @@ const sunriseTime = useMemo(() => {
       </section>
 
       <section className="flex flex-1 justify-center">
-        <DataRow dataRow={{dataHumidity, dataClouds, dataWind, dataTemp}}/>
+        <DataRow dataRow={{dataHumidity, dataClouds, dataWind, dataTemp, dataTempFeeelsLike}}/>
       </section>
 
       <section className="sm:padding padding-y flex flex-1 justify-center">
