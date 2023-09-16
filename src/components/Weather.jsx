@@ -54,7 +54,7 @@ const Weather = () => {
   const dataTemp = data.main?.temp;
   const dataTempMax = data.main?.temp_max;
   const dataTempMin = data.main?.temp_min;
-  (data === null)? des="" : des=data?.weather?.[0]?.description
+  (data === null)? des="" : des=data?.weather?.[0]?.main
 
 
 

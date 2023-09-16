@@ -2,10 +2,12 @@ import skySun from "../assets/icons/sky-sun.png";
 const MiddleSection = ({ middleData }) => {
   const { des, dataTemp, name } = middleData;
 
+  console.log("middle",des);
+
   return (
     <div className="">
       <section className="max-w-xs flex flex-row flex-1 justify-between">
-        <section className="basis-4/6">
+        <section className="basis-1/2">
           <img
             src={skySun}
             alt="sky-sun"
@@ -13,13 +15,13 @@ const MiddleSection = ({ middleData }) => {
           />
         </section>
 
-        <section className="basis-2/6 font-montserrat text-slate-700 pl-3 mt-4 ">
-          {dataTemp && (
+        <section className="basis-1/2 font-montserrat text-slate-700 pl-3 mt-4 ">
+          {/* {dataTemp && ( */}
             <section className="flex justify-start">
-              <p className="z-10 bg-transparent">{des}</p>
+              <p className="z-10 bg-transparent">{des===undefined?"Haze":des}</p>
               <section className="flex flex-row ml-[-40px] mt-4 bg-transparent">
                 <p className="text-4xl sm:text-8xl mt-2">
-                  {Math.round(dataTemp)}
+                  {dataTemp===undefined?"34":Math.round(dataTemp)}
                 </p>
 
                 <p className="lg:font-bold lg:text-3xl font-semibold text-xl mt-2 ml-1">
@@ -27,9 +29,9 @@ const MiddleSection = ({ middleData }) => {
                 </p>
               </section>
             </section>
-          )}
+          {/* )} */}
 
-          <h2 className="text-xs sm:text-lg font-bold">{name}</h2>
+          <h2 className="text-xs sm:text-lg font-bold">{name===undefined?"Dhaka":name}</h2>
         </section>
       </section>
     </div>
