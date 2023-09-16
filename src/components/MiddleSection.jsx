@@ -2,7 +2,7 @@ import skySun from "../assets/icons/sky-sun.png";
 const MiddleSection = ({ middleData }) => {
   const { des, dataTemp, name } = middleData;
 
-  console.log("middle",des);
+  // console.log("middle",des);
 
   return (
     <div className="">
@@ -18,10 +18,10 @@ const MiddleSection = ({ middleData }) => {
         <section className="basis-1/2 font-montserrat text-slate-700 pl-3 mt-4 ">
           {/* {dataTemp && ( */}
             <section className="flex justify-start">
-              <p className="z-10 bg-transparent">{des===undefined?"Haze":des}</p>
+              <p className="z-10 bg-transparent">{des ?? "Haze"}</p>
               <section className="flex flex-row ml-[-40px] mt-4 bg-transparent">
                 <p className="text-4xl sm:text-8xl mt-2">
-                  {dataTemp===undefined?"34":Math.round(dataTemp)}
+                  { Math.round(dataTemp ?? "34")  }
                 </p>
 
                 <p className="lg:font-bold lg:text-3xl font-semibold text-xl mt-2 ml-1">
@@ -31,7 +31,7 @@ const MiddleSection = ({ middleData }) => {
             </section>
           {/* )} */}
 
-          <h2 className="text-xs sm:text-lg font-bold">{name===undefined?"Dhaka":name}</h2>
+          <h2 className="text-xs sm:text-lg font-bold">{ name ?? "Dhaka" }</h2>
         </section>
       </section>
     </div>

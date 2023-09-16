@@ -1,4 +1,3 @@
-import React from 'react'
 import humidity from "../assets/icons/humidity.svg"
 import mm from "../assets/icons/mm.svg"
 import wind from "../assets/icons/wind.svg"
@@ -6,9 +5,9 @@ import temp from "../assets/icons/temp.svg"
 
 
 const DataRow = ({dataRow}) => {
-    const {dataHumidity, dataClouds, dataWind, dataTemp, dataTempFeeelsLike}=dataRow
+    const {dataHumidity, dataClouds, dataWind, dataTempFeeelsLike}=dataRow
 
-    console.log("data row", dataHumidity);
+    // console.log("data row", dataHumidity);
   return (
     <div className='flex flex-row justify-center items-center gap-5 sm:gap-16 font-montserrat text-slate-gray'>
 

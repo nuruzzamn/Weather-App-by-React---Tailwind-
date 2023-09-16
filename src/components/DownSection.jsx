@@ -3,6 +3,8 @@ import { dailyInfo } from "../constant";
 import { useState } from "react";
 
 const DownSection = ({timeInfo}) => {
+
+  
  
   return (
     <div>

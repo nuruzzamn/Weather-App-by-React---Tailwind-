@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useMemo } from "react";
 import Search from "./Search";
 import MiddleSection from "./MiddleSection";
 import DownSection from "./DownSection";
@@ -39,9 +39,12 @@ const Weather = () => {
     setError(data);
   };
 
-  (data !==undefined)? console.log("weather  bbgb", data):console.log("undefined data");
+  console.log("error",error);
 
-  
+  data !== undefined
+    ? console.log("weather  bbgb", data)
+    : console.log("undefined data");
+
   const name = data.name;
   const country = data.sys?.country;
   const sunrise = data.sys?.sunrise;
@@ -54,88 +57,11 @@ const Weather = () => {
   const dataTemp = data.main?.temp;
   const dataTempMax = data.main?.temp_max;
   const dataTempMin = data.main?.temp_min;
-  (data === null)? des="" : des=data?.weather?.[0]?.main
+  data === null ? (des = "") : (des = data?.weather?.[0]?.main);
 
-
-
-  
   // Use the formatTimestampToTime function to format sunrise and sunset
   const sunriseTime = useMemo(() => formatTimestampToTime(sunrise), [sunrise]);
   const sunsetTime = useMemo(() => formatTimestampToTime(sunset), [sunset]);
-/*
-
-
-  // const { sunrise, sunset } = time;
-
-  // console.log("down section",sunrise);
-
-  const [first, setfirst] = useState("")
-
-  if (sunrise !== undefined) {
-    // Unix timestamp
-    const timestamp = sunrise;
-
-    // Convert to JavaScript Date object
-    const date = new Date(timestamp * 1000);
-
-    // Get hours and minutes
-    const hours = date.getHours();
-    const minutes = date.getMinutes();
-
-    // Determine AM/PM
-    const ampm = hours >= 12 ? "PM" : "AM";
-
-    // Convert hours to 12-hour format
-    const hours12 = hours % 12 || 12;
-
-    // Format the time as "hh:mm AM/PM"
-    const timeFormatted = `${hours12}:${minutes
-      .toString()
-      .padStart(2, "0")} ${ampm}`;
-
-      setfirst(timeFormatted)
-    
-  } else {
-    console.log("else undefined");
-  }
-
-  useEffect(() => {
-    setfirst(first)
-    
-  }, [first])
-  
-  console.log("time set", first);
-  console.log("/////////////////");
-
-// Memoize the sunrise time
-const sunriseTime = useMemo(() => {
-  if (sunrise !== undefined) {
-    // Unix timestamp
-    const timestamp = sunrise;
-
-    // Convert to JavaScript Date object
-    const date = new Date(timestamp * 1000);
-
-    // Get hours and minutes
-    const hours = date.getHours();
-    const minutes = date.getMinutes();
-
-    // Determine AM/PM
-    const ampm = hours >= 12 ? "PM" : "AM";
-
-    // Convert hours to 12-hour format
-    const hours12 = hours % 12 || 12;
-
-    // Format the time as "hh:mm AM/PM"
-    return `${hours12}:${minutes.toString().padStart(2, "0")} ${ampm}`;
-  } else {
-    return "N/A";
-  }
-}, [sunrise]);*/
-
-// console.log("sunriseTime",sunsetTime)
-
-
 
   return (
     <div className="max-w-3xl relative m-auto flex flex-1 justify-center flex-col">
@@ -148,17 +74,29 @@ const sunriseTime = useMemo(() => {
       </section>
 
       <section className="padding-b flex flex-1 justify-center">
-        
-      {(data !==undefined)?<MiddleSection middleData={{ dataTemp, name, des}}/>:<MiddleSection middleData={""}/>}
-
+        {data !== undefined ? (
+          <MiddleSection middleData={{ dataTemp, name, des }} />
+        ) : (
+          <MiddleSection middleData={""} />
+        )}
       </section>
 
       <section className="flex flex-1 justify-center">
-        <DataRow dataRow={{dataHumidity, dataClouds, dataWind, dataTemp, dataTempFeeelsLike}}/>
+        <DataRow
+          dataRow={{
+            dataHumidity,
+            dataClouds,
+            dataWind,
+            dataTemp,
+            dataTempFeeelsLike,
+          }}
+        />
       </section>
 
       <section className="sm:padding padding-y flex flex-1 justify-center">
-        <DownSection timeInfo={{sunriseTime, sunsetTime, dataTempMax, dataTempMin}}/>
+        <DownSection
+          timeInfo={{ sunriseTime, sunsetTime, dataTempMax, dataTempMin }}
+        />
       </section>
     </div>
   );

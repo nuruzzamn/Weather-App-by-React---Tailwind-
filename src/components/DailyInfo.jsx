@@ -7,7 +7,7 @@ const DailyInfo = ({ timeInfo }) => {
 
   const {sunriseTime, sunsetTime, dataTempMax, dataTempMin}=timeInfo
 
-  console.log("sunsetTime", sunsetTime)
+  // console.log("timeInfo", ""===false)
   return (
     <div className="flex flex-1 bg-white gap-5 sm:gap-16 justify-evenly">
       <section className="flex flex-col bg-white justify-center items-center">
@@ -17,7 +17,7 @@ const DailyInfo = ({ timeInfo }) => {
           className="object-contain w-12 h-12 sm:w-16 sm:h-16 rounded-xl mb-2"
         />
         <p className="bg-white font-montserrat text-xs text-slate-700 ">Sunrise</p>
-        <p className="bg-white font-montserrat text-xs text-slate-700 ">{sunriseTime!==undefined ? "5.55 AM":sunriseTime}</p>
+        <p className="bg-white font-montserrat text-xs text-slate-700 ">{sunriseTime==="" ? "5.44 AM":sunriseTime}</p>
       </section>
 
       <section className="flex flex-col bg-white justify-center items-center">
@@ -27,7 +27,7 @@ const DailyInfo = ({ timeInfo }) => {
           className="object-contain w-12 h-12 sm:w-16 sm:h-16 rounded-xl mb-2"
         />
         <p className="bg-white font-montserrat text-xs text-slate-700 ">Sunset</p>
-        <p className="bg-white font-montserrat text-xs text-slate-700 ">{sunsetTime!==undefined ? "6.02 PM":sunsetTime}</p>
+        <p className="bg-white font-montserrat text-xs text-slate-700 ">{sunsetTime==="" ? "6.20 PM":sunsetTime}</p>
       </section>
 
       <section className="flex flex-col bg-white justify-center items-center">
@@ -37,7 +37,7 @@ const DailyInfo = ({ timeInfo }) => {
           className="object-contain w-12 h-12 sm:w-16 sm:h-16 rounded-xl mb-2"
         />
         <p className="bg-white font-montserrat text-xs text-slate-700 ">Min Temp</p>
-        <p className="bg-white font-montserrat text-xs text-slate-700 ">{dataTempMin===undefined ? "30":Math.round(dataTempMin)}</p>
+        <p className="bg-white font-montserrat text-xs text-slate-700 ">{ Math.round(dataTempMin ?? "30") }</p>
 
         {/* <section className='flex mt-2 bg-transparent'>
         <p className="bg-white font-montserrat text-xs text-slate-700 ">{dataTempMin===undefined ? "00":Math.round(dataTempMin)}</p>

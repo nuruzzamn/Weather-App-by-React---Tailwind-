@@ -1,4 +1,6 @@
 import SearchCard from "./SearchCard";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { useState } from "react";
 
@@ -13,6 +15,21 @@ const Search = ({ onFetchDataChanged, onErrorMessageChanged, location }) => {
   const onChangeHandle = (e) => {
     setSearchData(e.target.value);
   };
+
+  const notify = () =>
+    toast.error("Enter a valid Location!", {
+      position: "top-center",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      style: {
+        background: "transparent", // Change the inner side color to a transparent background
+        color: "#000", // Change the text color to black
+      },
+    });
 
   const apiDataHandle = () => {
     if (searchData) {
@@ -29,8 +46,10 @@ const Search = ({ onFetchDataChanged, onErrorMessageChanged, location }) => {
         })
         .catch((error) => {
           onErrorMessageChanged(error);
+          notify();
         });
     } else {
+      notify();
       console.log("enter a location name");
     }
   };
@@ -40,12 +59,11 @@ const Search = ({ onFetchDataChanged, onErrorMessageChanged, location }) => {
 
     apiDataHandle();
   };
-  // setSearchData("");
-
-    // apiDataHandle();
 
   return (
     <div>
+      <ToastContainer />
+
       <SearchCard
         onclick={searchClickHandle}
         onChangeHandle={onChangeHandle}
