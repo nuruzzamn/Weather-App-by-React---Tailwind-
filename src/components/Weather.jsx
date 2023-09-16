@@ -23,7 +23,7 @@ const formatTimestampToTime = (timestamp) => {
     // Format the time as "hh:mm AM/PM"
     return `${hours12}:${minutes.toString().padStart(2, "0")} ${ampm}`;
   } else {
-    return "N/A";
+    return "";
   }
 };
 
@@ -51,8 +51,8 @@ const Weather = () => {
   const dataClouds = data.clouds?.all;
   const dataHumidity = data.main?.humidity;
   const dataTemp = data.main?.temp;
-  const tempMax = data.main?.temp_max;
-  const tempMin = data.main?.temp_min;
+  const dataTempMax = data.main?.temp_max;
+  const dataTempMin = data.main?.temp_min;
   (data === null)? des="" : des=data?.weather?.[0]?.description
 
 
@@ -157,7 +157,7 @@ const sunriseTime = useMemo(() => {
       </section>
 
       <section className="sm:padding padding-y flex flex-1 justify-center">
-        <DownSection sunriseTime={sunriseTime}/>
+        <DownSection timeInfo={{sunriseTime, sunsetTime, dataTempMax, dataTempMin}}/>
       </section>
     </div>
   );
