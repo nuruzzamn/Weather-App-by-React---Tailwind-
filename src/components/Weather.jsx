@@ -65,7 +65,7 @@ const Weather = () => {
 
   return (
     <div className="max-w-3xl relative m-auto flex flex-1 justify-center flex-col">
-      <section className="padding-x padding-b pt-10 flex flex-1 justify-center">
+      <section className="padding-x padding-b pt-10 flex flex-1 justify-center mt-10 lg:mt-0">
         <Search
           onFetchDataChanged={onFetchDataChanged}
           onErrorMessageChanged={onErrorMessageChanged}
