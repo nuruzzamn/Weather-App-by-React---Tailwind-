@@ -1,6 +1,5 @@
 import Button from "./Button";
 import locationIcon from "../assets/icons/location.svg";
-import { useState } from "react";
 
 const SearchCard = ({ onclick, onChangeHandle, searchData, location }) => {
   const {name, country}=location

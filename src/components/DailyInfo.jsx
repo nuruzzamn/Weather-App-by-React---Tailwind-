@@ -1,11 +1,10 @@
-import sunrise1 from "../assets/icons/sunrise1.svg"
-import sunset from "../assets/icons/sunset.svg"
-import tempMin from "../assets/icons/tempMin.svg"
-import tempMax from "../assets/icons/tempMax.svg"
+import sunrise1 from "../assets/icons/sunrise1.svg";
+import sunset from "../assets/icons/sunset.svg";
+import tempMin from "../assets/icons/tempMin.svg";
+import tempMax from "../assets/icons/tempMax.svg";
 
 const DailyInfo = ({ timeInfo }) => {
-
-  const {sunriseTime, sunsetTime, dataTempMax, dataTempMin}=timeInfo
+  const { sunriseTime, sunsetTime, dataTempMax, dataTempMin } = timeInfo;
 
   // console.log("timeInfo", ""===false)
   return (
@@ -16,8 +15,12 @@ const DailyInfo = ({ timeInfo }) => {
           alt=""
           className="object-contain w-12 h-12 sm:w-16 sm:h-16 rounded-xl mb-2"
         />
-        <p className="bg-white font-montserrat text-xs text-slate-700 ">Sunrise</p>
-        <p className="bg-white font-montserrat text-xs text-slate-700 ">{sunriseTime==="" ? "5.44 AM":sunriseTime}</p>
+        <p className="bg-white font-montserrat text-xs text-slate-700 ">
+          Sunrise
+        </p>
+        <p className="bg-white font-montserrat text-xs text-slate-700 ">
+          {sunriseTime === "" ? "5.44 AM" : sunriseTime}
+        </p>
       </section>
 
       <section className="flex flex-col bg-white justify-center items-center">
@@ -26,8 +29,12 @@ const DailyInfo = ({ timeInfo }) => {
           alt=""
           className="object-contain w-12 h-12 sm:w-16 sm:h-16 rounded-xl mb-2"
         />
-        <p className="bg-white font-montserrat text-xs text-slate-700 ">Sunset</p>
-        <p className="bg-white font-montserrat text-xs text-slate-700 ">{sunsetTime==="" ? "6.20 PM":sunsetTime}</p>
+        <p className="bg-white font-montserrat text-xs text-slate-700 ">
+          Sunset
+        </p>
+        <p className="bg-white font-montserrat text-xs text-slate-700 ">
+          {sunsetTime === "" ? "6.20 PM" : sunsetTime}
+        </p>
       </section>
 
       <section className="flex flex-col bg-white justify-center items-center">
@@ -36,14 +43,17 @@ const DailyInfo = ({ timeInfo }) => {
           alt=""
           className="object-contain w-12 h-12 sm:w-16 sm:h-16 rounded-xl mb-2"
         />
-        <p className="bg-white font-montserrat text-xs text-slate-700 ">Min Temp</p>
-        <p className="bg-white font-montserrat text-xs text-slate-700 ">{ Math.round(dataTempMin ?? "30") }</p>
+        <p className="bg-white font-montserrat text-xs text-slate-700 ">
+          Min Temp
+        </p>
+        <p className="bg-white font-montserrat text-xs text-slate-700 ">
+          {Math.round(dataTempMin ?? "30")}
+        </p>
 
         {/* <section className='flex mt-2 bg-transparent'>
         <p className="bg-white font-montserrat text-xs text-slate-700 ">{dataTempMin===undefined ? "00":Math.round(dataTempMin)}</p>
         <p className='text-[10px] mt-[-5px] bg-transparent text-slate-700'>0</p>
         </section> */}
-
       </section>
 
       <section className="flex flex-col bg-white justify-center items-center">
@@ -52,15 +62,18 @@ const DailyInfo = ({ timeInfo }) => {
           alt=""
           className="object-contain w-12 h-12 sm:w-16 sm:h-16 rounded-xl mb-2"
         />
-        <p className="bg-white font-montserrat text-xs text-slate-700 ">Max Temp</p>
-        <p className="bg-white font-montserrat text-xs text-slate-700 ">{dataTempMax===undefined ? "38":Math.round(dataTempMax)}</p>
+        <p className="bg-white font-montserrat text-xs text-slate-700 ">
+          Max Temp
+        </p>
+        <p className="bg-white font-montserrat text-xs text-slate-700 ">
+          {dataTempMax === undefined ? "38" : Math.round(dataTempMax)}
+        </p>
 
         {/* <section className='flex mt-2 bg-transparent'>
         <p className="bg-white font-montserrat text-xs text-slate-700 ">{dataTempMax===undefined ? "00":Math.round(dataTempMax)}</p>
         <p className='text-[10px] mt-[-5px] bg-transparent text-slate-700'>0</p>
         </section> */}
       </section>
-      
     </div>
   );
 };
