@@ -39,11 +39,11 @@ const Weather = () => {
     setError(data);
   };
 
-  console.log("error",error);
+  // console.log("error",error);
 
-  data !== undefined
-    ? console.log("weather  bbgb", data)
-    : console.log("undefined data");
+  // data !== undefined
+  //   ? console.log("weather  bbgb", data)
+  //   : console.log("undefined data");
 
   const name = data.name;
   const country = data.sys?.country;

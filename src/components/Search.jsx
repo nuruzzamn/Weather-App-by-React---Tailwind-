@@ -8,9 +8,8 @@ const Search = ({ onFetchDataChanged, onErrorMessageChanged, location }) => {
   const [searchData, setSearchData] = useState("");
 
   const api =
-    "https://api.openweathermap.org/data/2.5/weather?q=" +
-    searchData +
-    "&appid=3265874a2c77ae4a04bb96236a642d2f&units=metric";
+    // "https://api.openweathermap.org/data/2.5/weather?q="+searchData+"&appid=3265874a2c77ae4a04bb96236a642d2f&units=metric";
+    "http://api.openweathermap.org/data/2.5/weather?q="+searchData+"&APPID=62f6de3f7c0803216a3a13bbe4ea9914&units=metric";
 
   const onChangeHandle = (e) => {
     setSearchData(e.target.value);
@@ -42,6 +41,8 @@ const Search = ({ onFetchDataChanged, onErrorMessageChanged, location }) => {
           }
         })
         .then((data) => {
+
+          // console.log("serach", data)
           onFetchDataChanged(data);
         })
         .catch((error) => {
@@ -50,7 +51,7 @@ const Search = ({ onFetchDataChanged, onErrorMessageChanged, location }) => {
         });
     } else {
       notify();
-      console.log("enter a location name");
+      // console.log("(Search) enter a location name");
     }
   };
 
